@@ -1,46 +1,55 @@
 const audioContext = new AudioContext();
-const Gain = audioContext.createGain();
 const listener = audioContext.listener;
 
 var sourcePlaces = [];
 var audios = [];
 var sources = [];
+var gains = [];
 
-
-
-// const audio = document.getElementById("TestSound");
-// const source = audioContext.createMediaElementSource(audio);
-
+var audioElem;
 
 function AudioBegin() {
 	audioContext.resume();
-	SetId();
 
 	for (var i = 1; i <= nbSound; i ++) {
 		sourcePlaces.push(audioContext.createPanner());
-		sourcePlaces[i-1].connect(audioContext.destination);
-		Gain.connect(sourcePlaces[i-1]);
+		gains.push(audioContext.createGain());
 		audios.push(document.getElementById("chooseSound" + i));
-		document.getElementById("chooseSound" + i);
 		sources.push(audioContext.createMediaElementSource(document.getElementById("chooseSound" + i)));
-		sources[i-1].connect(Gain);
+
+		sourcePlaces[i-1].connect(audioContext.destination);
+		gains[i-1].connect(sourcePlaces[i-1]);		
+		sources[i-1].connect(gains[i-1]);
+
+		gains[i-1].gain.setValueAtTime(0.3, 0);
 	}
 
 	listener.setPosition(0, 0, 0);
-	Gain.gain.setValueAtTime(0.3, 0);
 }
 
 function AudioChoose(inc, path) {
-	console.log(inc, path);
-	document.getElementById("chooseSound" + inc).src = "Audio/" + path;
-	console.log(document.getElementById("chooseSound" + inc));
-	console.log(document.getElementById("file1").files[0].name);
+	audioElem = document.getElementById("PlayPause" + inc);
+	PlayPause("PlayPause" + inc, inc, "Pause");
+	if (path[0]) {
+		document.getElementById("chooseSound" + inc).src = "Audio/" + path[0].name;
+		audioElem.style.visibility = "visible";
+		audioElem.style.position = "relative";
+		document.getElementById("src" + inc).style.visibility = "visible";
+	}
+	else {
+		audioElem.style.visibility = "hidden";
+		audioElem.style.position = "absolute";
+		document.getElementById("src" + inc).style.visibility = "hidden";
+	}
 }
 
-function AudioUpdate(pos, or){
-	listener.setOrientation(Math.cos((or[1]-90)*Math.PI/180), 0, Math.sin((or[1]-90)*Math.PI/180), 0, 1, 0);
+function AudioUpdatePos(inc, pos){
+	sourcePlaces[inc-1].setPosition(pos[inc-1][0], pos[inc-1][1], pos[inc-1][2]);
+}
+
+function AudioUpdateOr(or){
+	listener.setOrientation(Math.cos((or-90)*Math.PI/180), 0, Math.sin((or-90)*Math.PI/180), 0, 1, 0);
 	console.log(listener)
-	sourcePlace.setPosition(pos[0], pos[1], pos[2]);
 }
 
 function PlayPause(id, inc, playing) {

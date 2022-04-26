@@ -1,13 +1,23 @@
-var pos = [0, 0, 0];
-var or = [0, 0, 0];
-
 var nbSound = 4;
 var temp;
+var tempX;
+var tempY;
+
+var positions = [];
+var orientation = 0;
 
 function Display() {
+	SetId();
+
 	document.getElementsByClassName("Using")[0].style.visibility = "visible";
 	document.getElementsByClassName("BeginButton")[0].style.visibility = "hidden";
 	document.getElementsByClassName("BeginButton")[0].style.position = "absolute";
+
+	for (var i = 1; i <= nbSound; i++) {
+		document.getElementById("PlayPause" + i).style.visibility = "hidden";
+		document.getElementById("PlayPause" + i).style.position = "absolute";
+		positions.push([0, 0, 0]);	}
+
 	AudioBegin();
 }
 
@@ -26,16 +36,22 @@ function NbAudios(Nb) {
 	}
 }
 
-function Update() {
-	pos = [posX.value, posY.value, posZ.value];
-	or = [orX.value, orY.value, orZ.value];
-	document.getElementsByClassName("Flag")[0].style.transform = "translate("+pos[0]+"px,"+pos[1]+"px) rotateX("+or[0]+"deg) rotateY("+or[1]+"deg) rotateZ("+or[2]+"deg)";
-	AudioUpdate(pos, or);
+function UpdatePos(inc, dir, value) {
+	positions[inc-1][dir] = value;
+	tempX = positions[inc-1][0]*20 - 6;
+	tempY = -positions[inc-1][2]*20 + 98;
+	document.getElementById("src" + inc).style.transform = "translate("+tempX+"px,"+tempY+"px)";
+	document.getElementById("src" + inc).style.zIndex = positions[inc-1][1];
+	AudioUpdatePos(inc, positions);
 }
 
-$(window).keypress(function(Enter) {
-	Update();
-});
+function UpdateOr(value) {
+	orientation = value;
+	document.getElementsByClassName("UserPos")[0].style.transform = "translate(-9px, 95px) RotateZ(-"+value+"deg)";
+	console.log(document.getElementsByClassName("UserPos").style);
+	AudioUpdateOr(orientation);
+}
+
 
 function includeHTML() {
   var z, i, elmnt, file, xhttp;

@@ -24,29 +24,28 @@
 				    <option selected="selected" value="4">4</option>
 				</select>
 			</NbAudio></div>
+			<h4>Position des audios</h4>
 			<div class="BlocPos" w3-include-html="choose.html"></div>
+			<h4>Orientation de l'utilisateur</h4>
 			<div class="Orientation"><Orientation>
-				<input id="orX" name="OrientationX" type="number" value="0" min="-360" max="360" onclick="Update()"/>
-				<label>
-					Orientation X
-				</label>
-				<input id="orY" name="OrientationY" type="number" value="0" min="-360" max="360" onclick="Update()"/>
-				<label>
-					Orientation Y
-				</label>
-				<input id="orZ" name="OrientationZ" type="number" value="0" min="-360" max="360" onclick="Update()"/>
-				<label>
-					Orientation Z
-				</label>
+				<libellé>Orientation</libellé>
+				<select onchange="UpdateOr(value)">				   
+					<option value="0">Avant</option>
+				    <option value="180">Arrière</option>
+				    <option value="90">Gauche</option>
+				    <option value="270">Droite</option>
+				</select>
 			</Orientation></div>
-			<div class="Flag"><Submit>
+<!-- 			<div class="Flag"><Submit>
 				<input id="Representation" name="Flag" type="Button" value="Flag">
-			</Submit></div>
-			<div id="maPos"></div>
-			<div id="src1"></div>
-			<div id="src2"></div>
-			<div id="src3"></div>
-			<div id="src4"></div>
+			</Submit></div> -->
+			<div class="UserPos"></div>
+			<div><Source>
+				<div class="Source" id="src1">1</div>
+				<div class="Source" id="src2">2</div>
+				<div class="Source" id="src3">3</div>
+				<div class="Source" id="src4">4</div>
+			</Source></div>
 		</Using></div>
 		<div><Source>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

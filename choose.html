@@ -1,21 +1,21 @@
 <div class="Flex">
 	<div class="Position"><Position>
-		<input type="file" id="file" class="file" name="soundfile" accept="audio/mpeg, audio/wav" onchange="AudioChoose(increment, files[0].name)">
+		<input type="file" id="file" class="file" name="soundfile" accept="audio/mpeg, audio/wav" onchange="AudioChoose(increment, files)">
 		<audio id="chooseSound" type="audio/mpeg" title="sound" src="" loop></audio>
 		<div>
-			<input id="posX" name="PositionX" type="number" value="0" step="1" min="-10" max="10" onclick="Update()"/>
+			<input id="posX" name="PositionX" type="number" value="0" step="1" min="-10" max="10" onchange="UpdatePos(increment, 0, value)"/>
 			<label>
 				Position X
 			</label>
 		</div>
 		<div>
-			<input id="posY" name="PositionY" type="number" value="0" step="1" min="-10" max="10" onclick="Update()"/>
+			<input id="posY" name="PositionY" type="number" value="0" step="1" min="-10" max="10" onchange="UpdatePos(increment, 1, value)"/>
 			<label>
 				Position Y
 			</label>
 		</div>
 		<div>
-			<input id="posZ" name="PositionZ" type="number" value="0" step="1" min="-10" max="10" onclick="Update()"/>
+			<input id="posZ" name="PositionZ" type="number" value="0" step="1" min="-10" max="10" onchange="UpdatePos(increment, 2, -value)"/>
 			<label>
 				Position Z
 			</label>

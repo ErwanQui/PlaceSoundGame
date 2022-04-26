@@ -1,6 +1,6 @@
 body {
-  	background-color: brown;
-  	text-align: center
+  background-color: brown;
+	text-align: center
 }
 
 .Using { /*avec un point devant c'est pour les classes*/
@@ -26,19 +26,40 @@ body {
 	flex: 1 1 auto;
 }
 
-#maPos{
-  background:#bfd70e;
-  border-radius:50%;
-  width:10px;
-  height:10px;
-  border:2px solid #679403; 
+.UserPos {
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 15px solid blue;
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-9px, 95px);
+  z-index: 1;
 }
 
-#src1{
-  background:#bfd70e;
+.Source {
+  visibility: hidden;
+  font-size: 10px;
+  text-align: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-6px, 98px);
+  background: green;
+  z-index: 0;
+}
+
+/*#src1 {
+  transform: translate(20px);
+}
+*/
+/*#src1{
+  background:#bfd70d;
   border-radius:50%;
   width:10px;
   height:10px;
@@ -47,4 +68,4 @@ body {
   top: 50%;
   left: 50%;
   transform: translateX(5px);
-}
+}*/
