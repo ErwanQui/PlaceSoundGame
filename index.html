@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+	<head>
+		<title>
+			Testing
+		</title>
+		<link rel="stylesheet" type="text/css" href="Style.css"/>
+		<link rel="shortcut icon" href="#"/>
+		<meta name="description" content="Site web" />
+	</head>
+	<body>
+		<h1>Test monoson avec position/orientation</h1>
+		<div class="BeginButton"><BeginButton>
+			<button id="BeginButton" type = "submit" onclick="Display()">
+				<h4>Commencer</h4>
+			</button>
+		</BeginButton></div>
+		<div class="Using"><Using>
+			<div class="NbAudio"><NbAudio>
+				<libellé>Nombre d'audios</libellé>
+				<select onchange="NbAudios(value)">				   
+					<option value="1">1</option>
+				    <option value="2">2</option>
+				    <option value="3">3</option>
+				    <option selected="selected" value="4">4</option>
+				</select>
+			</NbAudio></div>
+			<div class="BlocPos" w3-include-html="choose.html"></div>
+			<div class="Orientation"><Orientation>
+				<input id="orX" name="OrientationX" type="number" value="0" min="-360" max="360" onclick="Update()"/>
+				<label>
+					Orientation X
+				</label>
+				<input id="orY" name="OrientationY" type="number" value="0" min="-360" max="360" onclick="Update()"/>
+				<label>
+					Orientation Y
+				</label>
+				<input id="orZ" name="OrientationZ" type="number" value="0" min="-360" max="360" onclick="Update()"/>
+				<label>
+					Orientation Z
+				</label>
+			</Orientation></div>
+			<div class="Flag"><Submit>
+				<input id="Representation" name="Flag" type="Button" value="Flag">
+			</Submit></div>
+			<div id="maPos"></div>
+			<div id="src1"></div>
+			<div id="src2"></div>
+			<div id="src3"></div>
+			<div id="src4"></div>
+		</Using></div>
+		<div><Source>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			<script src="TestPosOr.js"></script>
+			<script src="Sound.js"></script>
+			<script>includeHTML();</script>
+    	</Source></div>
+	</body>
+</html>

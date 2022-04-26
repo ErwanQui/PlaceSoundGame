@@ -1,0 +1,50 @@
+body {
+  	background-color: brown;
+  	text-align: center
+}
+
+.Using { /*avec un point devant c'est pour les classes*/
+	visibility: hidden;
+}
+
+.Flag {
+	position: relative;
+	top: 80px;
+}
+
+#Representation{ /*avec un point devant c'est pour les classes*/
+	width: 20%;
+	font-size: 400%;
+	top: 20%;
+}
+
+.BlocPos {
+	display: flex;
+}
+
+.Flex {
+	flex: 1 1 auto;
+}
+
+#maPos{
+  background:#bfd70e;
+  border-radius:50%;
+  width:10px;
+  height:10px;
+  border:2px solid #679403; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+#src1{
+  background:#bfd70e;
+  border-radius:50%;
+  width:10px;
+  height:10px;
+  border:2px solid #679403; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(5px);
+}

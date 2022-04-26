@@ -1,0 +1,27 @@
+<div class="Flex">
+	<div class="Position"><Position>
+		<input type="file" id="file" class="file" name="soundfile" accept="audio/mpeg, audio/wav" onchange="AudioChoose(increment, files[0].name)">
+		<audio id="chooseSound" type="audio/mpeg" title="sound" src="" loop></audio>
+		<div>
+			<input id="posX" name="PositionX" type="number" value="0" step="1" min="-10" max="10" onclick="Update()"/>
+			<label>
+				Position X
+			</label>
+		</div>
+		<div>
+			<input id="posY" name="PositionY" type="number" value="0" step="1" min="-10" max="10" onclick="Update()"/>
+			<label>
+				Position Y
+			</label>
+		</div>
+		<div>
+			<input id="posZ" name="PositionZ" type="number" value="0" step="1" min="-10" max="10" onclick="Update()"/>
+			<label>
+				Position Z
+			</label>
+		</div>
+	</Position></div>
+	<div class="Pause"><Submit>
+		<input id="PlayPause" name="PauseButton" type="Button" value="Play" onclick="PlayPause(id, increment, value)">
+	</Submit></div>
+</div>
