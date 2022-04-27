@@ -30,27 +30,18 @@ function AudioBegin() {
 function AudioChoose(inc, path) {
 	audioElem = document.getElementById("PlayPause" + inc);
 	PlayPause("PlayPause" + inc, inc, "Pause");
-	console.log(path);
-	console.log(path[0]);
-	if (path[0]) {
+	if (path[0] && path[0] != "No Sound") {
 		if (path[0].name) {
-			console.log(path[0].name)
-			console.log(document.getElementById("chooseSound" + inc).src)
 			document.getElementById("chooseSound" + inc).src = "Audio/" + path[0].name;
-			console.log(document.getElementById("chooseSound" + inc).src)
-			console.log(document.getElementById("chooseSound" + inc).type)
 		}
 		else {
 			document.getElementById("chooseSound" + inc).src = "Audio/" + path[0];
-
 		}
-		console.log(document.getElementById("chooseSound" + inc).src);
 		audioElem.style.visibility = "visible";
 		audioElem.style.position = "relative";
 		document.getElementById("src" + inc).style.visibility = "visible";
 	}
 	else {
-		console.log(path[0])
 		audioElem.style.visibility = "hidden";
 		audioElem.style.position = "absolute";
 		document.getElementById("src" + inc).style.visibility = "hidden";

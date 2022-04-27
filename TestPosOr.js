@@ -5,7 +5,7 @@ var tempY;
 
 var positions = [];
 var orientation = 0;
-
+var gameMode = "with";
 
 var	file;
 var	provided;
@@ -42,15 +42,24 @@ function NbAudios(Nb) {
 			document.getElementsByClassName("Flex")[i].style.visibility = "hidden";
 			document.getElementsByClassName("Flex")[i].style.position = "absolute";
 			temp = i+1;
-			PlayPause("PlayPause" + temp, "Pause");
+			if (gameMode=="with") {
+				// document.getElementById("file"+temp).files[0].name = "";
+				document.getElementById("file"+temp).files[0] = undefined;
+				AudioChoose(temp, [undefined]);
+			}
+			else {
+				document.getElementById("audioChoose"+temp).value = "No Sound";
+				AudioChoose(temp, ["No Sound"]);
+			}
 		}
 	}
 }
 
 function ModeChange(mode) {
+	gameMode = mode;
 	if (mode=="with") {
 		for (var i = 0; i < nbSound; i++) {
-			file[i].style.visibility = "visible";
+			file[i].style.visibility = "";
 			file[i].style.position = "relative";
 			provided[i].style.visibility = "hidden";
 			provided[i].style.position = "absolute";
@@ -62,7 +71,7 @@ function ModeChange(mode) {
 		for (var i = 0; i < nbSound; i++) {
 			file[i].style.visibility = "hidden";
 			file[i].style.position = "absolute";
-			provided[i].style.visibility = "visible";
+			provided[i].style.visibility = "";
 			provided[i].style.position = "relative";
 			temp = i+1;
 			console.log(document.getElementById("audioChoose"+temp).value);
