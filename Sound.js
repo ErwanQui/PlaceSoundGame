@@ -37,7 +37,7 @@ function AudioChoose(inc, path) {
 			document.getElementById("chooseSound" + inc).src = "Audio/" + path[0].name;
 		}
 		else {
-			document.getElementById("chooseSound" + inc).src = "https://github.com/bkfg12335/PlaceSoundGame/tree/main/Audio/" + path[0];
+			document.getElementById("chooseSound" + inc).src = "https://raw.githack.com/bkfg12335/PlaceSoundGame/tree/main/Audio" + path[0];
 
 		}
 		console.log(document.getElementById("chooseSound" + inc).src);
