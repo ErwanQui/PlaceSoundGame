@@ -48,7 +48,6 @@ function UpdatePos(inc, dir, value) {
 function UpdateOr(value) {
 	orientation = value;
 	document.getElementsByClassName("UserPos")[0].style.transform = "translate(-9px, 95px) RotateZ(-"+value+"deg)";
-	console.log(document.getElementsByClassName("UserPos").style);
 	AudioUpdateOr(orientation);
 }
 

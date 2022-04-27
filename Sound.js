@@ -31,7 +31,8 @@ function AudioChoose(inc, path) {
 	audioElem = document.getElementById("PlayPause" + inc);
 	PlayPause("PlayPause" + inc, inc, "Pause");
 	if (path[0]) {
-		document.getElementById("chooseSound" + inc).src = "Audio/" + path[0].name;
+		// document.getElementById("chooseSound" + inc).src = "Audio/" + path[0].name;
+		document.getElementById("chooseSound" + inc).src = "https://github.com/bkfg12335/PlaceSoundGame/tree/main/Audio/" + path[0].name;
 		audioElem.style.visibility = "visible";
 		audioElem.style.position = "relative";
 		document.getElementById("src" + inc).style.visibility = "visible";
@@ -49,7 +50,6 @@ function AudioUpdatePos(inc, pos){
 
 function AudioUpdateOr(or){
 	listener.setOrientation(Math.cos((or-90)*Math.PI/180), 0, Math.sin((or-90)*Math.PI/180), 0, 1, 0);
-	console.log(listener)
 }
 
 function PlayPause(id, inc, playing) {
