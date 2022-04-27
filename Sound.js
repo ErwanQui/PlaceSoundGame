@@ -43,6 +43,7 @@ function AudioChoose(inc, path) {
 		document.getElementById("src" + inc).style.visibility = "visible";
 	}
 	else {
+		document.getElementById("chooseSound" + inc).src = "";
 		audioElem.style.visibility = "hidden";
 		audioElem.style.position = "absolute";
 		document.getElementById("src" + inc).style.visibility = "hidden";
@@ -54,20 +55,7 @@ function AudioUpdatePos(inc, pos){
 }
 
 function AudioUpdateOr(or){
-	test = test + 1;
-	a = Math.cos((or-90)*Math.PI/180);
-	b = Math.sin((or-90)*Math.PI/180);
 	listener.setOrientation(Math.cos((or-90)*Math.PI/180), 0, Math.sin((or-90)*Math.PI/180), 0, 1, 0);
-	c = listener.forwardX.value;
-	d = listener.forwardY.value;
-	e = listener.forwardZ.value;
-	if (a<0.1 && a>-0.1) {a = 0;}
-	if (b<0.1 && b>-0.1) {b = 0;}
-	if (c<0.1 && c>-0.1) {c = 0;}
-	if (d<0.1 && d>-0.1) {d = 0;}
-	if (e<0.1 && e>-0.1) {e = 0;}
-	document.getElementById("Representation").value = or;
-	document.getElementById("Representation2").value = Math.PI;
 }
 
 function PlayPause(id, inc, playing) {

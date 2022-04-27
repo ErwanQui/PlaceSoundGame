@@ -1,10 +1,10 @@
 var nbSound = 4;
+var nbAudio = 4;
 var temp;
 var tempX;
 var tempY;
 
 var positions = [];
-var orientation = 0;
 var gameMode = "with";
 
 var	file;
@@ -33,6 +33,7 @@ function Display() {
 }
 
 function NbAudios(Nb) {
+	nbAudio = Nb
 	for (var i = 1; i < nbSound; i++) {
 		if (i < Nb) {
 			document.getElementsByClassName("Flex")[i].style.visibility = "visible";
@@ -42,15 +43,9 @@ function NbAudios(Nb) {
 			document.getElementsByClassName("Flex")[i].style.visibility = "hidden";
 			document.getElementsByClassName("Flex")[i].style.position = "absolute";
 			temp = i+1;
-			if (gameMode=="with") {
-				// document.getElementById("file"+temp).files[0].name = "";
-				document.getElementById("file"+temp).files[0] = undefined;
-				AudioChoose(temp, [undefined]);
-			}
-			else {
-				document.getElementById("audioChoose"+temp).value = "No Sound";
-				AudioChoose(temp, ["No Sound"]);
-			}
+
+			document.getElementById("audioChoose"+temp).value = "No Sound";
+			AudioChoose(temp, ["No Sound"]);
 		}
 	}
 }
@@ -65,6 +60,7 @@ function ModeChange(mode) {
 			provided[i].style.position = "absolute";
 			temp = i+1;
 			AudioChoose(temp, document.getElementById("file"+temp).files);
+			NbAudios(nbAudio);
 		}
 	}
 	else {
@@ -74,8 +70,8 @@ function ModeChange(mode) {
 			provided[i].style.visibility = "";
 			provided[i].style.position = "relative";
 			temp = i+1;
-			console.log(document.getElementById("audioChoose"+temp).value);
 			AudioChoose(temp, [document.getElementById("audioChoose"+temp).value]);
+			NbAudios(nbAudio);
 		}
 	}
 }
@@ -90,9 +86,8 @@ function UpdatePos(inc, dir, value) {
 }
 
 function UpdateOr(value) {
-	orientation = value;
 	document.getElementsByClassName("UserPos")[0].style.transform = "translate(-9px, 95px) RotateZ(-"+value+"deg)";
-	AudioUpdateOr(orientation);
+	AudioUpdateOr(value);
 }
 
 
