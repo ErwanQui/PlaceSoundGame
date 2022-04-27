@@ -7,6 +7,7 @@ var sources = [];
 var gains = [];
 
 var audioElem;
+var test = 0;
 
 function AudioBegin() {
 	audioContext.resume();
@@ -53,6 +54,7 @@ function AudioUpdatePos(inc, pos){
 }
 
 function AudioUpdateOr(or){
+	test = test + 1;
 	a = Math.cos((or-90)*Math.PI/180);
 	b = Math.sin((or-90)*Math.PI/180);
 	listener.setOrientation(Math.cos((or-90)*Math.PI/180), 0, Math.sin((or-90)*Math.PI/180), 0, 1, 0);
@@ -64,7 +66,7 @@ function AudioUpdateOr(or){
 	if (c<0.1 && c>-0.1) {c = 0;}
 	if (d<0.1 && d>-0.1) {d = 0;}
 	if (e<0.1 && e>-0.1) {e = 0;}
-	document.getElementById("Representation").value = "("+a+", "+0+", "+b+")";
+	document.getElementById("Representation").value = test;
 	document.getElementById("Representation2").value = "("+c+", "+d+", "+e+")";
 }
 
