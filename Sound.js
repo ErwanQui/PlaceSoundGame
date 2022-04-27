@@ -41,7 +41,7 @@ function AudioChoose(inc, path) {
 			console.log(document.getElementById("chooseSound" + inc).type)
 		}
 		else {
-			document.getElementById("chooseSound" + inc).src = "https://raw.githubusercontent.com/bkfg12335/PlaceSoundGame/blob/main/Audio/" + path[0];
+			document.getElementById("chooseSound" + inc).src = "Audio/" + path[0];
 
 		}
 		console.log(document.getElementById("chooseSound" + inc).src);
