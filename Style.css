@@ -13,9 +13,15 @@ body {
 }
 
 #Representation{ /*avec un point devant c'est pour les classes*/
-	width: 20%;
-	font-size: 400%;
+	width: 10%;
+	font-size: 100%;
 	top: 20%;
+}
+
+#Representation2{ /*avec un point devant c'est pour les classes*/
+  width: 10%;
+  font-size: 100%;
+  top: 20%;
 }
 
 .BlocPos {
