@@ -1,38 +1,21 @@
-body {
+body { /*centre et set la couleur de fond*/
   background-color: brown;
 	text-align: center
 }
 
-.Using { /*avec un point devant c'est pour les classes*/
+.Using { /*permet de gérer l'affichage de l'ensemble du site*/
 	visibility: hidden;
 }
 
-.Flag {
-	position: relative;
-	top: 80px;
-}
-
-#Representation{ /*avec un point devant c'est pour les classes*/
-	width: 10%;
-	font-size: 100%;
-	top: 20%;
-}
-
-#Representation2{ /*avec un point devant c'est pour les classes*/
-  width: 10%;
-  font-size: 100%;
-  top: 20%;
-}
-
-.BlocPos {
+.BlocPos { /*permet de changer l'affichage des blocs (alors séparés par des div)*/
 	display: flex;
 }
 
-.Flex {
+.Flex { /*mets les blocs côte à côte par proportion automatique*/
 	flex: 1 1 auto;
 }
 
-.UserPos {
+.UserPos { /*dessine un triangle bleu pour l'utilisateur*/
   width: 0;
   height: 0;
   border-left: 9px solid transparent;
@@ -45,7 +28,7 @@ body {
   z-index: 1;
 }
 
-.Source {
+.Source { /*dessine des cercles verts pour les sources*/
   visibility: hidden;
   font-size: 10px;
   text-align: center;
