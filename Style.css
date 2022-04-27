@@ -59,19 +59,3 @@ body {
   background: green;
   z-index: 0;
 }
-
-/*#src1 {
-  transform: translate(20px);
-}
-*/
-/*#src1{
-  background:#bfd70d;
-  border-radius:50%;
-  width:10px;
-  height:10px;
-  border:2px solid #679403; 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(5px);
-}*/
