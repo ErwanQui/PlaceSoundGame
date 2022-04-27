@@ -15,6 +15,12 @@
 			</button>
 		</BeginButton></div>
 		<div class="Using"><Using>
+			<div><Mode>
+				<input type="radio" id="withfile" name="mode" value="with" checked onclick="ModeChange(value)"/>
+				<label for="whithfile">Use File</label>
+				<input type="radio" id="withoutfile" name="mode" value="without" onclick="ModeChange(value)"/>
+				<label for="withoutfile">Use Provided Audio</label>
+			</Mode></div>
 			<div class="NbAudio"><NbAudio>
 				<libellé>Nombre d'audios</libellé>
 				<select onchange="NbAudios(value)">				   

@@ -30,14 +30,23 @@ function AudioBegin() {
 function AudioChoose(inc, path) {
 	audioElem = document.getElementById("PlayPause" + inc);
 	PlayPause("PlayPause" + inc, inc, "Pause");
+	console.log(path);
+	console.log(path[0]);
 	if (path[0]) {
-		// document.getElementById("chooseSound" + inc).src = "Audio/" + path[0].name;
-		document.getElementById("chooseSound" + inc).src = "https://github.com/bkfg12335/PlaceSoundGame/tree/main/Audio/" + path[0].name;
+		if (path[0].name) {
+			document.getElementById("chooseSound" + inc).src = "Audio/" + path[0].name;
+		}
+		else {
+			document.getElementById("chooseSound" + inc).src = "https://github.com/bkfg12335/PlaceSoundGame/tree/main/Audio/" + path[0];
+
+		}
+		console.log(document.getElementById("chooseSound" + inc).src);
 		audioElem.style.visibility = "visible";
 		audioElem.style.position = "relative";
 		document.getElementById("src" + inc).style.visibility = "visible";
 	}
 	else {
+		console.log(path[0])
 		audioElem.style.visibility = "hidden";
 		audioElem.style.position = "absolute";
 		document.getElementById("src" + inc).style.visibility = "hidden";

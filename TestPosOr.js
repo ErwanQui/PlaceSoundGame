@@ -6,8 +6,16 @@ var tempY;
 var positions = [];
 var orientation = 0;
 
+
+var	file;
+var	provided;
+
 function Display() {
 	SetId();
+
+
+	file = document.getElementsByClassName("FileChoose");
+	provided = document.getElementsByClassName("AudioChoose");
 
 	document.getElementsByClassName("Using")[0].style.visibility = "visible";
 	document.getElementsByClassName("BeginButton")[0].style.visibility = "hidden";
@@ -16,7 +24,10 @@ function Display() {
 	for (var i = 1; i <= nbSound; i++) {
 		document.getElementById("PlayPause" + i).style.visibility = "hidden";
 		document.getElementById("PlayPause" + i).style.position = "absolute";
-		positions.push([0, 0, 0]);	}
+		positions.push([0, 0, 0]);
+		provided[i-1].style.visibility = "hidden";
+		provided[i-1].style.position = "absolute";
+	}
 
 	AudioBegin();
 }
@@ -32,6 +43,30 @@ function NbAudios(Nb) {
 			document.getElementsByClassName("Flex")[i].style.position = "absolute";
 			temp = i+1;
 			PlayPause("PlayPause" + temp, "Pause");
+		}
+	}
+}
+
+function ModeChange(mode) {
+	if (mode=="with") {
+		for (var i = 0; i < nbSound; i++) {
+			file[i].style.visibility = "visible";
+			file[i].style.position = "relative";
+			provided[i].style.visibility = "hidden";
+			provided[i].style.position = "absolute";
+			temp = i+1;
+			AudioChoose(temp, document.getElementById("file"+temp).files);
+		}
+	}
+	else {
+		for (var i = 0; i < nbSound; i++) {
+			file[i].style.visibility = "hidden";
+			file[i].style.position = "absolute";
+			provided[i].style.visibility = "visible";
+			provided[i].style.position = "relative";
+			temp = i+1;
+			console.log(document.getElementById("audioChoose"+temp).value);
+			AudioChoose(temp, [document.getElementById("audioChoose"+temp).value]);
 		}
 	}
 }
