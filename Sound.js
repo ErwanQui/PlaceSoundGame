@@ -66,8 +66,8 @@ function AudioUpdateOr(or){
 	if (c<0.1 && c>-0.1) {c = 0;}
 	if (d<0.1 && d>-0.1) {d = 0;}
 	if (e<0.1 && e>-0.1) {e = 0;}
-	document.getElementById("Representation").value = test;
-	document.getElementById("Representation2").value = "("+c+", "+d+", "+e+")";
+	document.getElementById("Representation").value = or;
+	document.getElementById("Representation2").value = Math.PI;
 }
 
 function PlayPause(id, inc, playing) {
