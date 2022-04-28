@@ -91,6 +91,12 @@ function AudioUpdateOr(or){
 	listener.setOrientation(Math.cos((or-90)*Math.PI/180), 0, Math.sin((or-90)*Math.PI/180), 0, 1, 0);
 }
 
+//fonction permettant d'update le volume de chacune des sources
+
+function UpdateGain(inc, value){
+	gains[inc-1].gain.setValueAtTime(value, 0);
+}
+
 //fonction permettant de jouer et mettre en pause les différentes bandes sons
 
 function PlayPause(id, inc, playing) {
