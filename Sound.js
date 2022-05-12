@@ -13,7 +13,7 @@ var test = 0;
 
 function AudioBegin() {
 
-	//lancemeent de l'audio
+	//lancement de l'audio
 
 	audioContext.resume();
 
